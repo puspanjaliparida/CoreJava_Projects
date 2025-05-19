@@ -1,0 +1,39 @@
+/*Q7.Frequency of Characters
+     Input a string and print the frequency of each character (excluding spaces).*/
+package com.nit;
+import java.util.Scanner;
+
+public class CharacterFrequency {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        input = input.replace(" ", ""); // Remove spaces
+
+        // Count frequency of each character
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            int count = 1;
+
+            // Skip already counted characters
+            boolean alreadyCounted = false;
+            for (int j = 0; j < i; j++) {
+                if (input.charAt(j) == ch) {
+                    alreadyCounted = true;
+                    break;
+                }
+            }
+
+            if (!alreadyCounted) {
+                for (int j = i + 1; j < input.length(); j++) {
+                    if (ch == input.charAt(j)) {
+                        count++;
+                    }
+                }
+                System.out.println(ch + " = " + count);
+            }
+        }
+    }
+}

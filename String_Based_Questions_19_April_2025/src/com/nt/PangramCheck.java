@@ -1,0 +1,37 @@
+/*Q13.Check if Pangram
+      Accept a sentence and check if it's a pangram (i.e., contains all 26 letters of the
+      English alphabet at least once).*/
+package com.nt;
+import java.util.Scanner;
+
+public class PangramCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a sentence: ");
+        String sentence = sc.nextLine().toLowerCase();
+
+        boolean[] letters = new boolean[26];
+
+        for (int i = 0; i < sentence.length(); i++) {
+            char ch = sentence.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                letters[ch - 'a'] = true;
+            }
+        }
+
+        boolean isPangram = true;
+        for (boolean b : letters) {
+            if (!b) {
+                isPangram = false;
+                break;
+            }
+        }
+
+        if (isPangram)
+            System.out.println("The sentence is a pangram.");
+        else
+            System.out.println("The sentence is not a pangram.");
+    }
+}
+

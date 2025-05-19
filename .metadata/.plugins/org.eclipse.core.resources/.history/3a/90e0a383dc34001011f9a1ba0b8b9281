@@ -1,0 +1,23 @@
+/*5. Convert to Title Case
+     Write a program to convert the first letter of each word in a sentence 
+     to uppercase.
+*/
+package com.nit;
+
+import java.util.Scanner;
+
+public class TitleCase {
+   
+	public static void ConvertingTitleCaseToUpper(String input) {
+		String word="";
+		word=input.toUpperCase();
+		System.out.println("Upper case of the "+input+"is::"+word);
+	}
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+        ConvertingTitleCaseToUpper(input);
+        sc.close();
+	}
+}

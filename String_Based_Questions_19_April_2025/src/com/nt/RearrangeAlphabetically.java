@@ -1,0 +1,33 @@
+/*Q11.Rearrange Alphabetically
+      Accept a string and display all characters sorted in alphabetical order
+      (excluding spaces).*/
+package com.nt;
+import java.util.Scanner;
+
+public class RearrangeAlphabetically {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+        
+        // Remove spaces and convert string to a character array
+        String noSpaces = input.replace(" ", "");
+        char[] characters = noSpaces.toCharArray();
+        
+        // Sort the characters alphabetically
+        for (int i = 0; i < characters.length - 1; i++) {
+            for (int j = i + 1; j < characters.length; j++) {
+                if (characters[i] > characters[j]) {
+                    // Swap characters if they are in the wrong order
+                    char temp = characters[i];
+                    characters[i] = characters[j];
+                    characters[j] = temp;
+                }
+            }
+        }
+
+        // Print the sorted characters
+        System.out.println("Sorted string: " + new String(characters));
+    }
+}

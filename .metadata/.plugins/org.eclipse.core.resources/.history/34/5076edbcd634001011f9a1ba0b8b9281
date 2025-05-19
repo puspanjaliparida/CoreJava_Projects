@@ -1,0 +1,80 @@
+package com.nit;
+class BankUser{
+  public static void main(String[] args) 
+		  throws InvalidAmountException,
+		         InterruptedException,
+		         InsufficientFundException{
+	BankAccount b1=new BankAccount();
+	BankAccount b2=new BankAccount();
+	BankAccount b3=new BankAccount();
+	BankAccount b4=new BankAccount();
+	BankAccount b5=new BankAccount();
+	BankAccount b6=new BankAccount();
+	
+	//Test Case-1
+	b1.setAccountNumber(1001);
+	b1.setBalance(5000.00);
+	Thread.sleep(3000);
+	b1.deposit(2000.00);
+	Thread.sleep(1500);
+	System.out.println();
+	
+	//Test Case-2
+	b2.setAccountNumber(1002);
+	b2.setBalance(8000.00);
+	Thread.sleep(3000);
+	b2.withdraw(3000.00);
+	Thread.sleep(1500);
+	System.out.println();
+	
+	//Test Case-3
+	/*b3.setAccountNumber(1003);
+	b3.setBalance(1500.00);
+	Thread.sleep(3000);
+	b3.withdraw(2000.00);
+    Thread.sleep(1500);
+    System.out.println();*/
+    
+    //Test Case-4
+    b4.setAccountNumber(1004);
+    b4.setBalance(2500.00);
+    Thread.sleep(3000);
+    b4.checkBalance();
+    Thread.sleep(1500);
+    System.out.println();
+    
+    //Test Case-5
+    b5.setAccountNumber(1005);
+    b5.setBalance(10000.00);
+    
+    b6.setAccountNumber(1006);
+    b6.setBalance(5000.00);
+    
+    Thread.sleep(1500);
+    BankAccount.transfer(b5, b6, 3000.00);
+    Thread.sleep(1500);
+    System.out.println("In Source Account");
+    b5.checkBalance();
+    Thread.sleep(1500);
+    System.out.println("In Destination Account");
+    b6.checkBalance();
+    Thread.sleep(1500);
+    
+    //Test Case-6
+    /*b5.setAccountNumber(1007);
+    b5.setBalance(2000.00);
+    
+    b6.setAccountNumber(1008);
+    b6.setBalance(3000.00);
+    
+    Thread.sleep(1500);
+    BankAccount.transfer(b5, b6, 4000.00);
+    Thread.sleep(1500);
+    System.out.println("In Source Account");
+    b5.checkBalance();
+    Thread.sleep(1500);
+    System.out.println("In Destination Account");
+    b6.checkBalance();
+    Thread.sleep(1500);*/
+  }
+}

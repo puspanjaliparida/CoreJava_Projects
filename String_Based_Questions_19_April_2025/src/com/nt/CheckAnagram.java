@@ -1,0 +1,33 @@
+/*Q6.Check for Anagram
+      Accept two strings and check whether they are anagrams of each other.
+      (e.g., listen and silent)*/
+package com.nt;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class CheckAnagram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first string: ");
+        String str1 = sc.nextLine().replaceAll(" ", "").toLowerCase();
+
+        System.out.print("Enter second string: ");
+        String str2 = sc.nextLine().replaceAll(" ", "").toLowerCase();
+
+        // Convert strings to character arrays
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+
+        // Sort both arrays
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        // Compare sorted arrays
+        if (Arrays.equals(arr1, arr2)) {
+            System.out.println("The strings are anagrams.");
+        } else {
+            System.out.println("The strings are not anagrams.");
+        }
+    }
+}

@@ -1,0 +1,32 @@
+/*Q14.Pattern Matching
+      Accept two strings: a sentence and a word. Check if the word is present in the
+      sentence and how many times it appears.*/
+package com.nt;
+import java.util.Scanner;
+
+public class PatternMatching {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a sentence: ");
+        String sentence = sc.nextLine();
+        
+        System.out.print("Enter a word to search: ");
+        String word = sc.nextLine();
+
+        String[] words = sentence.split(" ");
+        int count = 0;
+
+        for (String w : words) {
+            if (w.equals(word)) {
+                count++;
+            }
+        }
+
+        if (count > 0) {
+            System.out.println("The word '" + word + "' is present " + count + " time(s).");
+        } else {
+            System.out.println("The word '" + word + "' is not present.");
+        }
+    }
+}
