@@ -3949,3 +3949,261 @@ java.lang.InterruptedException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+!SESSION 2025-05-27 15:00:54.635 -----------------------------------------------
+eclipse.buildId=4.34.0.20241128-0756
+java.version=21.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product -data D:\SpecialBatchClass
+
+!ENTRY ch.qos.logback.classic 1 0 2025-05-27 15:01:00.006
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.epp.mpc.core 4 0 2025-05-27 15:01:00.477
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.core [1158]
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.11.0.v20240709-1650"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"] because it is exposed to package 'org.apache.hc.core5.http' from resources org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.2.5.v20240703-1000"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"] and org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.2.v20250110-0800"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.11.0.v20240709-1650"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.hc.core5.http)(&(version>=5.1.0)(!(version>=5.3.0))))
+     |
+    export: osgi.wiring.package: org.apache.hc.core5.http
+  org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.2.5.v20240703-1000"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.11.0.v20240709-1650"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.hc.client5.http)(&(version>=5.1.0)(!(version>=5.4.0))))
+     |
+    export: osgi.wiring.package=org.apache.hc.client5.http; uses:=org.apache.hc.core5.http
+  org.apache.httpcomponents.client5.httpclient5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.1.v20240126-0900"; osgi.identity="org.apache.httpcomponents.client5.httpclient5"]
+    import: (&(osgi.wiring.package=org.apache.hc.core5.http)(&(version>=5.2.0)(!(version>=6.0.0))))
+     |
+    export: osgi.wiring.package: org.apache.hc.core5.http
+  org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.2.v20250110-0800"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.epp.mpc.core.win32 4 0 2025-05-27 15:01:00.485
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.core.win32 [1159]
+  Unresolved requirement: Import-Package: org.eclipse.epp.internal.mpc.core.transport.httpclient; bundle-version="1.11.0"
+    -> Export-Package: org.eclipse.epp.internal.mpc.core.transport.httpclient; bundle-symbolic-name="org.eclipse.epp.mpc.core"; bundle-version="1.11.0.v20240709-1650"; version="0.0.0"; x-friends:="org.eclipse.epp.mpc.core.win32"; uses:="org.apache.http.auth,  org.apache.http.protocol,  org.apache.http.impl.client,  org.apache.http,  org.eclipse.epp.mpc.core.service,  org.apache.http.client,  org.eclipse.core.runtime,  org.apache.http.client.fluent,  org.apache.http.client.protocol"
+       org.eclipse.epp.mpc.core [1158]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core.win32 [osgi.identity; type="osgi.bundle"; version:Version="1.11.0.v20240709-0639"; osgi.identity="org.eclipse.epp.mpc.core.win32"; singleton:="true"] because it is exposed to package 'org.apache.hc.client5.http.auth' from resources org.apache.httpcomponents.client5.httpclient5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.1.v20240126-0900"; osgi.identity="org.apache.httpcomponents.client5.httpclient5"] and org.apache.httpcomponents.client5.httpclient5 [osgi.identity; type="osgi.bundle"; version:Version="5.4.1.v20241029-1100"; osgi.identity="org.apache.httpcomponents.client5.httpclient5"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core.win32 [osgi.identity; type="osgi.bundle"; version:Version="1.11.0.v20240709-0639"; osgi.identity="org.eclipse.epp.mpc.core.win32"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.hc.client5.http.auth)(&(version>=5.1.0)(!(version>=5.4.0))))
+     |
+    export: osgi.wiring.package: org.apache.hc.client5.http.auth
+  org.apache.httpcomponents.client5.httpclient5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.1.v20240126-0900"; osgi.identity="org.apache.httpcomponents.client5.httpclient5"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core.win32 [osgi.identity; type="osgi.bundle"; version:Version="1.11.0.v20240709-0639"; osgi.identity="org.eclipse.epp.mpc.core.win32"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.hc.client5.http.impl.win)(&(version>=5.1.0)(!(version>=5.4.0))))
+     |
+    export: osgi.wiring.package=org.apache.hc.client5.http.impl.win; uses:=org.apache.hc.client5.http.auth
+  org.apache.httpcomponents.client5.httpclient5-win [osgi.identity; type="osgi.bundle"; version:Version="5.2.3.v20231203-1619"; osgi.identity="org.apache.httpcomponents.client5.httpclient5-win"]
+    import: (&(osgi.wiring.package=org.apache.hc.client5.http.auth)(&(version>=5.2.0)(!(version>=6.0.0))))
+     |
+    export: osgi.wiring.package: org.apache.hc.client5.http.auth
+  org.apache.httpcomponents.client5.httpclient5 [osgi.identity; type="osgi.bundle"; version:Version="5.4.1.v20241029-1100"; osgi.identity="org.apache.httpcomponents.client5.httpclient5"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.epp.mpc.ui 4 0 2025-05-27 15:01:00.516
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.ui [1161]
+  Unresolved requirement: Require-Bundle: org.eclipse.epp.mpc.core; bundle-version="[1.11.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.epp.mpc.core; bundle-version="1.11.0.v20240709-1650"; singleton:="true"
+       org.eclipse.epp.mpc.core [1158]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.11.0.v20240709-1650"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"] because it is exposed to package 'org.apache.hc.core5.http' from resources org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.2.5.v20240703-1000"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"] and org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.2.v20250110-0800"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.11.0.v20240709-1650"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.hc.core5.http)(&(version>=5.1.0)(!(version>=5.3.0))))
+     |
+    export: osgi.wiring.package: org.apache.hc.core5.http
+  org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.2.5.v20240703-1000"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.11.0.v20240709-1650"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.hc.client5.http)(&(version>=5.1.0)(!(version>=5.4.0))))
+     |
+    export: osgi.wiring.package=org.apache.hc.client5.http; uses:=org.apache.hc.core5.http
+  org.apache.httpcomponents.client5.httpclient5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.1.v20240126-0900"; osgi.identity="org.apache.httpcomponents.client5.httpclient5"]
+    import: (&(osgi.wiring.package=org.apache.hc.core5.http)(&(version>=5.2.0)(!(version>=6.0.0))))
+     |
+    export: osgi.wiring.package: org.apache.hc.core5.http
+  org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.2.v20250110-0800"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.lemminx.uber-jar 4 0 2025-05-27 15:01:01.816
+!MESSAGE bundle org.eclipse.lemminx.uber-jar:0.29.0 (1599) Component descriptor entry 'OSGI-INF/*.xml' not found
+
+!ENTRY ch.qos.logback.classic 1 0 2025-05-27 15:01:05.026
+!MESSAGE Logback config file: D:\SpecialBatchClass\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.0.20241001-1350.xml
+
+!ENTRY org.eclipse.ui 2 0 2025-05-27 15:01:05.759
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-05-27 15:01:05.759
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2025-05-27 15:01:06.231
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-05-27 15:01:06.231
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-05-27 15:01:12.113
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Puspanjali'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 2 2 2025-05-27 15:01:12.623
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.foundation.ui, page: org.jboss.tools.foundation.ui.internal.credentials.CredentialPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2025-05-27 15:01:12.625
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.usage, page: org.jboss.tools.usage.analytics.preferences.UsageAnalyticsPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2025-05-27 15:01:12.627
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.runtime.ui, page: org.jboss.tools.runtime.preferences.RuntimePreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2025-05-27 15:01:12.628
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.common.jdt.debug.ui, page: org.jboss.tools.common.jdt.debug.ui.preferences.RemoteDebugPreferencePage)
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:13.918
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.438
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.441
+!MESSAGE Could not send USER event 'Anonymous ID: befed1be-3abe-460e-8722-1f85dcbba4fe': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.442
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.443
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.444
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.446
+!MESSAGE Could not send USER event 'Anonymous ID: befed1be-3abe-460e-8722-1f85dcbba4fe': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.447
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.448
+!MESSAGE Could not send ACTION event 'showOnStartup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.454
+!MESSAGE Ignored property with key: null value: null
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.458
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.461
+!MESSAGE Could not send USER event 'Anonymous ID: befed1be-3abe-460e-8722-1f85dcbba4fe': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.464
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.469
+!MESSAGE Could not send STARTUP event 'startup': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.474
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.479
+!MESSAGE Could not send USER event 'Anonymous ID: befed1be-3abe-460e-8722-1f85dcbba4fe': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.483
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.487
+!MESSAGE Could not send ACTION event 'installed': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.501
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.503
+!MESSAGE Could not send USER event 'Anonymous ID: befed1be-3abe-460e-8722-1f85dcbba4fe': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.505
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.506
+!MESSAGE Could not send ACTION event 'finishWizard': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.508
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.509
+!MESSAGE Could not send USER event 'Anonymous ID: befed1be-3abe-460e-8722-1f85dcbba4fe': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.511
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.514
+!MESSAGE Could not send ACTION event 'finishWizard': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.516
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.518
+!MESSAGE Could not send USER event 'Anonymous ID: befed1be-3abe-460e-8722-1f85dcbba4fe': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.520
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.524
+!MESSAGE Could not send ACTION event 'finishWizard': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.540
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.548
+!MESSAGE Could not send USER event 'Anonymous ID: befed1be-3abe-460e-8722-1f85dcbba4fe': no analytics instance present.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.550
+!MESSAGE Could not create Segment Analytics instance, missing writeKey.
+
+!ENTRY org.jboss.tools.usage 2 0 2025-05-27 15:01:14.552
+!MESSAGE Could not send ACTION event 'finishWizard': no analytics instance present.
