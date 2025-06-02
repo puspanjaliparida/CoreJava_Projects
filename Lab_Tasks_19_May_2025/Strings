@@ -259,111 +259,83 @@ B. Welcome
 C. Welcome NareshIT
 D. NareshIT
 
-Answer:
+Answer:(A)WelcomeNareshIT
  
 Question: 16
 Which Exception raise for the following snippet
 public class StringHandling {
-public static void main(String[] args) {
-String str = “NareshIT”;
-System.out.println(str.charAt(10));
-}
+   public static void main(String[] args) {
+     String str = "NareshIT";
+     System.out.println(str.charAt(10));
+   }
 }
 
 A. StringIndexOutOfBoundsException
-
-
 B. ArrayIndexOutOfBoundsException
-
-
 C. IndexOutOfBoundsException
-
-
 D. StringOutOfBoundsException
 
+Answer:(A)StringIndexOutOfBoundsException
 
 Question: 17
 What is the output of the following code
 public class StringHandling {
-public static void main(String[] args) {
-String str = ” Welcome to Naresh I Technologies Java “;
-System.out.println(str.indexOf(‘o’));
-System.out.println(str.indexOf(‘I’));
-System.out.println(str.lastIndexOf(‘e’));
+    public static void main(String[] args) {
+        String str = " Welcome to Naresh I Technologies Java ";
+        System.out.println(str.indexOf('o'));
+        System.out.println(str.indexOf('I'));
+        System.out.println(str.lastIndexOf('e'));
+    }
 }
-}
-
-
 
 A. 5 19 31
-
-
 B. 6 19 32
-
-
 C. 4 18 30
-
-
 D. 4 18 31
 
+Answer:(A)5 19 31 
 
 Question: 18
 What is the output of the following program
 public class StringHandling {
-public static void main(String[] args) {
-String str = “Naresh I Technologies”.replace(“e”, “E”);
-System.out.println(str);
+   public static void main(String[] args) {
+      String str = "Naresh I Technologies".replace("e", "E");
+      System.out.println(str);
+   }
 }
-}
-
-
 
 A. NarEsh I Technologies
-
-
 B. NarEsh
-
-
 C. Naresh I Technologies
-
-
 D. NarEsh I TEchnologiEs
 
+Answer:(D)NarEsh I TEchnologiEs
 
 Question: 19
 What is the output of the following code
 public class StringHandling {
-public static void main(String[] args) {
-String str = “NareshIT”;
-System.out.println(str.endsWith(“It”));
+   public static void main(String[] args) {
+     String str = "NareshIT";
+     System.out.println(str.endsWith("It"));
+   }
 }
-}
-
-
 
 A. true
-
-
 B. false
 
+Answer:(B)false
 
 Question: 20
 Choose the correct output of the following snippet
 public class StringHandling {
-public static void main(String[] args) {
-String str = new String(“NareshIT”); // line 1
+   public static void main(String[] args) {
+     String str = new String("NareshIT"); // line 1
+   }
 }
-}
-
-
 
 A. In line 1 create two objects and one reference variable
-
-
 B. In line 1 create one object and one reference variable
-
-
 C. In line 1 create two objects and two reference variable
-
-
 D. In line 1 create one objects and two reference variable
+
+Answer:(A)In line 1 create two objects and one reference variable
